@@ -378,6 +378,6 @@ For behavioral questions:
 
 **Situation → scope/impact → action → control/QC → measurable result → lesson.**
 
-For the lymphoma database-lock case, keep the factual anchors consistent:
+For the lymphoma specification-discrepancy case, keep the factual anchors consistent:
 
 **specification discrepancy → 385 potentially affected outputs → statistician alignment → controlled rerun + independent QC in parallel → approximately three days → CSR remained on schedule.**
