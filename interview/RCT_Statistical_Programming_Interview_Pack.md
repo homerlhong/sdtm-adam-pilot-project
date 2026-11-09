@@ -10,7 +10,7 @@ My background is in clinical statistical programming, with more than six years o
 
 Beyond hands-on programming, a significant part of my experience has been delivery ownership. I have coordinated programming activities with statisticians and cross-functional teams, managed issues on the critical path, and helped teams move from database lock through final outputs and CSR delivery while maintaining traceability and independent QC.
 
-One example was a lymphoma study where we identified a specification discrepancy late in the reporting cycle. After impact assessment, we determined that 385 outputs were potentially affected. I aligned with the statistician on the corrected specification, organized a controlled rerun and independent QC in parallel, and the team completed the remediation within three days without delaying the CSR.
+One example was a lymphoma study where we identified a specification discrepancy late in the reporting cycle. After impact assessment, we determined that 385 outputs were potentially affected. I helped assess the impact, aligned with the statistician on the corrected specification, and we ran a controlled rerun and independent QC in parallel; remediation was completed in approximately three days and the CSR remained on schedule.
 
 What I am looking for now is a role where I can combine strong hands-on statistical programming with delivery ownership, quality, and cross-functional collaboration.
 
@@ -108,7 +108,7 @@ For time-to-event endpoints I am comfortable discussing Kaplan–Meier estimatio
 
 The programming responsibility is not merely to call a statistical procedure. The critical work is implementing the endpoint, event and censoring rules exactly as specified and making those derivations auditable.
 
-## 7. Database-Lock / 385-Output Case
+## 7. Specification Discrepancy / 385 Potentially Affected Outputs Case
 
 ### Situation
 
@@ -188,7 +188,7 @@ The goal is not simply to produce the correct number once. It is to make the res
 
 ### Tell me about a difficult programming issue.
 
-Use the **385-output database-lock case**.
+Use the **specification discrepancy / 385 potentially affected outputs case**.
 
 ### How do you work with statisticians?
 

@@ -136,7 +136,7 @@ The main lesson was that under pressure, the fastest approach is not uncontrolle
 
 ---
 
-## 12. How did you know all 385 outputs needed to be rerun?
+## 12. How did you determine the rerun scope for the 385 potentially affected outputs?
 
 I would distinguish between potentially impacted and confirmed impacted outputs.
 
