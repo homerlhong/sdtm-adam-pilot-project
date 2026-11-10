@@ -25,3 +25,11 @@ Download `index.html` and open it in a modern browser; no build tools or API key
 This repository's Pages configuration has **not** been checked or changed. For a site at the repository root, configure GitHub Pages to publish the default branch root, then open `/stat-interview-ai/` under the resulting Pages site. If Pages is already configured for another source or site, avoid overwriting it without reviewing existing deployment settings.
 
 The current embedded question snapshot must be regenerated when Markdown questions change. Answers remain in the browser session unless the user explicitly exports the report.
+
+### Guided practice features
+
+- Two progressive, answer-neutral hints per question (concept and approach).
+- Contextual **View code** panel for selected programming questions, with illustrative SAS examples; non-code questions clearly mark code as not applicable.
+- Random-order option and tracking of hints/code viewed in the review and exported report.
+- Hints are learning aids, **not** solutions; code samples are illustrative and require review against applicable study specifications.
+- These features do not imply automated answer grading or passing the bank's 90/100 editorial quality gate.
