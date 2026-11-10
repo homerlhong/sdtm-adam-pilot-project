@@ -26,7 +26,10 @@ check("bugAnswer in range", all(0 <= e["bugAnswer"] < len(e["choices"]) for e in
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
-    print("SKIP browser tests (playwright not installed)")
+    if "--allow-skip-browser" in sys.argv:
+        print("SKIP browser tests (playwright not installed; --allow-skip-browser given)")
+    else:
+        check("playwright installed (browser tests are required; pass --allow-skip-browser to run key checks only)", False)
 else:
     with sync_playwright() as p:
         b = p.chromium.launch(); pg = b.new_page(); errs = []
@@ -46,10 +49,26 @@ else:
         for eid, e in ex.items():
             check(f"{eid} correct accepted", "ok" in attempt(eid, e["bugAnswer"], e["outputAnswer"]))
         check("score 3/3", "3 / 3" in pg.locator("#labScore").inner_text())
+        # sticky solve: a later wrong attempt must not un-solve, but must count as an attempt
+        before = pg.evaluate("JSON.parse(localStorage.getItem('stat-interview-codelab-v1'))['CL-001'].attempts")
+        check("correct-then-wrong shows fail", "bad" in attempt("CL-001", 0, 99))
+        after = pg.evaluate("JSON.parse(localStorage.getItem('stat-interview-codelab-v1'))['CL-001']")
+        check("solve is sticky after later wrong", after["solved"] is True)
+        check("attempt counted", after["attempts"] == before + 1)
+        check("score still 3/3", "3 / 3" in pg.locator("#labScore").inner_text())
         pg.reload()
         check("score persists", "3 / 3" in pg.locator("#labScore").inner_text())
         forest = pg.evaluate("localStorage.getItem('stat-interview-learning-forest-v1')")
         check("forest untouched", forest is None)
+        pg.once("dialog", lambda d: d.dismiss())
+        pg.click("#labReset")
+        check("reset cancel keeps results", "3 / 3" in pg.locator("#labScore").inner_text())
+        pg.once("dialog", lambda d: d.accept())
+        pg.click("#labReset")
+        check("reset confirm clears score", "0 / 3" in pg.locator("#labScore").inner_text())
+        check("reset clears storage", pg.evaluate("localStorage.getItem('stat-interview-codelab-v1')") == "{}")
+        pg.reload()
+        check("reset survives reload", "0 / 3" in pg.locator("#labScore").inner_text())
         for w in (320, 375):
             pg.set_viewport_size({"width": w, "height": 800})
             check(f"no overflow {w}", pg.evaluate("document.documentElement.scrollWidth<=innerWidth"))

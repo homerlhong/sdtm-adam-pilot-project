@@ -14,4 +14,4 @@ Design
 - Results are stored under `stat-interview-codelab-v1`, separate from the forest score. Merging them into the score is Phase 3 work.
 - SAS is not executed in the browser. The output questions ask the learner to predict the result. Running the programs in real SAS remains a manual verification item.
 
-Tests: `python3 tests/codelab_check.py` gives 19 PASS. The `phase0_smoke.py` regression gives 22 PASS.
+Tests: `python3 tests/codelab_check.py` gives 28 PASS. Without Playwright the script now exits 1 unless `--allow-skip-browser` is passed. It covers sticky solves (correct then wrong), attempt counting, reset with cancel and confirm, and persistence. CI: `.github/workflows/stat-interview-tests.yml`. Scope: grading checks a predicted output, not the semantics of SAS code the learner writes. The `phase0_smoke.py` regression gives 22 PASS.
