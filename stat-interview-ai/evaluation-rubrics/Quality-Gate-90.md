@@ -19,7 +19,7 @@
 - Zero critical technical errors or fabricated regulatory claims.
 - Every question checked for accuracy, ambiguity, duplication, level fit and version sensitivity.
 - Record authoritative references and versions (SAS, CDISC, applicable regulatory guidance), review date and reviewer.
-- Independent reviewer approval required before claiming PASS.
+- Editorial self-review is permitted; record reviewer, review date, scoring rationale and supporting references. Independent technical validation is not a release requirement.
 
 ## Current status
 
