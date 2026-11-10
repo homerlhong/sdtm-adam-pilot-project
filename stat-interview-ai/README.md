@@ -10,4 +10,4 @@
 - [Level 6: L6-Associate-Principal](question-bank/L6-Associate-Principal.md)
 - [Level 7: L7-Principal](question-bank/L7-Principal.md)
 
-Each question includes an English prompt, concise reference answer, Chinese evaluation focus and follow-up. Answers are editorial starting points, not independently validated model answers. See [Quality Gate 90](evaluation-rubrics/Quality-Gate-90.md). Do not use confidential sponsor data or patient records.
+Each question includes an English prompt, concise reference answer, Chinese evaluation focus and follow-up. Answers are editorial starting points, not yet quality-reviewed model answers. See [Quality Gate 90](evaluation-rubrics/Quality-Gate-90.md). Do not use confidential sponsor data or patient records.
