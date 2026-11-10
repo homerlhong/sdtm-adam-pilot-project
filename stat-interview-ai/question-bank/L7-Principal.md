@@ -1,6 +1,17 @@
 # L7-Principal — Interview Questions
 
-**Status: DRAFT / UNREVIEWED / NO GO**
+**Status: DRAFT / SELF-REVIEW PENDING / NO GO**
+
+## Level competency and review guidance
+
+**Expected evidence:** Demonstrate enterprise risk ownership, regulatory governance and strategic trade-offs.
+
+**Common failure modes:** Treating technical speed as a substitute for scientific correctness.
+
+**Scoring per question (0–10):** technical correctness 0–4; level-appropriate reasoning 0–2; clarity 0–2; edge cases or limitations 0–2. A score is not assigned until a documented review is performed.
+
+**Important:** The concise reference answer is a starting point, not an exhaustive or universally applicable response. Check study-specific definitions against the applicable protocol, SAP, and standard version.
+
 
 ## Q001 — How would you design an enterprise programming strategy?
 
@@ -10,7 +21,9 @@
 
 **Follow-up:** What are the first 90-day priorities?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -22,7 +35,9 @@
 
 **Follow-up:** When do regulatory teams need notification?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -34,7 +49,9 @@
 
 **Follow-up:** Which tasks should remain human-controlled?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -46,7 +63,9 @@
 
 **Follow-up:** How do you measure over-standardization?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -58,4 +77,6 @@
 
 **Follow-up:** Which metrics are misleading?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
