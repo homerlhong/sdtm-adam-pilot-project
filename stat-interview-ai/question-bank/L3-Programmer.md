@@ -1,6 +1,17 @@
 # L3-Programmer — Interview Questions
 
-**Status: DRAFT / UNREVIEWED / NO GO**
+**Status: DRAFT / SELF-REVIEW PENDING / NO GO**
+
+## Level competency and review guidance
+
+**Expected evidence:** Explain analysis derivation, metadata lineage, and testable QC cases.
+
+**Common failure modes:** Assuming a single derivation fits every protocol or SAP.
+
+**Scoring per question (0–10):** technical correctness 0–4; level-appropriate reasoning 0–2; clarity 0–2; edge cases or limitations 0–2. A score is not assigned until a documented review is performed.
+
+**Important:** The concise reference answer is a starting point, not an exhaustive or universally applicable response. Check study-specific definitions against the applicable protocol, SAP, and standard version.
+
 
 ## Q001 — What is ADSL?
 
@@ -10,7 +21,9 @@
 
 **Follow-up:** How do you check one record per subject?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -22,7 +35,9 @@
 
 **Follow-up:** Where does ADAE usually fit?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -34,7 +49,9 @@
 
 **Follow-up:** How do you handle incomplete onset dates?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -46,7 +63,9 @@
 
 **Follow-up:** What if two records share the same date?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -58,4 +77,6 @@
 
 **Follow-up:** How do you reconcile metadata and datasets?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
