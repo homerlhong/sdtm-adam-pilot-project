@@ -41,3 +41,7 @@ The interface now offers **Auto (sunrise/sunset)**, **Day**, and **Dark**. In Au
 ### Personalized backgrounds
 
 Choose **Aurora**, **Sunrise**, **Forest**, or **Minimal** and adjust background intensity from 0–100%. The scene palette adapts to the existing Day/Dark theme (including automatic sunrise/sunset switching). Settings are saved locally when browser storage is available; Reset restores Aurora at 72%. Backgrounds are CSS-only and require no image downloads or accounts. Reduced-motion preferences are respected.
+
+### Seven-section learning forest and practice scores
+
+The home page displays seven forest cards (L1–L7). Each completed practice session yields a **self-assessed percentage**: (answers marked Met / all answered questions) × 100. Every 10 percentage points grows approximately one tree in a ten-tree forest. **80% is a provisional practice target, not a certified pass**. A score appears only after every answer in the session has been manually rated; an incomplete review displays no score. The latest completed session per level is saved in browser localStorage, with an explicit Reset learning forest action. The score and tree progress do **not** imply AI grading, independent validation, or passage of the question-bank's separate editorial 90/100 gate.
