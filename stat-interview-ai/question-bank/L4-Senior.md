@@ -1,6 +1,17 @@
 # L4-Senior — Interview Questions
 
-**Status: DRAFT / UNREVIEWED / NO GO**
+**Status: DRAFT / SELF-REVIEW PENDING / NO GO**
+
+## Level competency and review guidance
+
+**Expected evidence:** Resolve complex derivations with evidence, impact assessment and controlled remediation.
+
+**Common failure modes:** Making unapproved post hoc rules; equating conformance with correctness.
+
+**Scoring per question (0–10):** technical correctness 0–4; level-appropriate reasoning 0–2; clarity 0–2; edge cases or limitations 0–2. A score is not assigned until a documented review is performed.
+
+**Important:** The concise reference answer is a starting point, not an exhaustive or universally applicable response. Check study-specific definitions against the applicable protocol, SAP, and standard version.
+
 
 ## Q001 — How do you investigate a production/QC discrepancy?
 
@@ -10,7 +21,9 @@
 
 **Follow-up:** What if CSR delivery is tomorrow?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -22,7 +35,9 @@
 
 **Follow-up:** How do MAR and MNAR differ?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -34,7 +49,9 @@
 
 **Follow-up:** What if an event occurs after cutoff?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -46,7 +63,9 @@
 
 **Follow-up:** Can a conformant dataset be wrong?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -58,4 +77,6 @@
 
 **Follow-up:** What if analyses are already unblinded?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
