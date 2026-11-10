@@ -1,6 +1,17 @@
 # L5-Lead — Interview Questions
 
-**Status: DRAFT / UNREVIEWED / NO GO**
+**Status: DRAFT / SELF-REVIEW PENDING / NO GO**
+
+## Level competency and review guidance
+
+**Expected evidence:** Prioritize delivery risk, cross-functional accountability and independent QC.
+
+**Common failure modes:** Promising deadlines before impact analysis.
+
+**Scoring per question (0–10):** technical correctness 0–4; level-appropriate reasoning 0–2; clarity 0–2; edge cases or limitations 0–2. A score is not assigned until a documented review is performed.
+
+**Important:** The concise reference answer is a starting point, not an exhaustive or universally applicable response. Check study-specific definitions against the applicable protocol, SAP, and standard version.
+
 
 ## Q001 — A database-lock error affects hundreds of outputs. What do you do?
 
@@ -10,7 +21,9 @@
 
 **Follow-up:** What if the deadline is infeasible?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -22,7 +35,9 @@
 
 **Follow-up:** How do you refuse an unsafe shortcut?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -34,7 +49,9 @@
 
 **Follow-up:** How do you handle competing studies?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -46,7 +63,9 @@
 
 **Follow-up:** What if agreement is not reached?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -58,4 +77,6 @@
 
 **Follow-up:** How do you prevent shared logic errors?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
