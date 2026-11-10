@@ -37,3 +37,7 @@ The current embedded question snapshot must be regenerated when Markdown questio
 ### Day / Dark themes following sunrise and sunset
 
 The interface now offers **Auto (sunrise/sunset)**, **Day**, and **Dark**. In Auto mode, an explicit **Use location** click requests browser geolocation and computes approximate astronomical sunrise and sunset locally. No coordinates are transmitted or stored by this app. Without location permission, Auto uses an explicitly labeled **07:00–19:00 local-clock approximation**, not actual sunrise/sunset. Theme updates approximately once per minute; the manually selected mode is stored in localStorage when available. Location access generally requires HTTPS or localhost, and the calculation is an approximation (not an official astronomical timetable).
+
+### Personalized backgrounds
+
+Choose **Aurora**, **Sunrise**, **Forest**, or **Minimal** and adjust background intensity from 0–100%. The scene palette adapts to the existing Day/Dark theme (including automatic sunrise/sunset switching). Settings are saved locally when browser storage is available; Reset restores Aurora at 72%. Backgrounds are CSS-only and require no image downloads or accounts. Reduced-motion preferences are respected.
