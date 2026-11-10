@@ -33,3 +33,7 @@ The current embedded question snapshot must be regenerated when Markdown questio
 - Random-order option and tracking of hints/code viewed in the review and exported report.
 - Hints are learning aids, **not** solutions; code samples are illustrative and require review against applicable study specifications.
 - These features do not imply automated answer grading or passing the bank's 90/100 editorial quality gate.
+
+### Day / Dark themes following sunrise and sunset
+
+The interface now offers **Auto (sunrise/sunset)**, **Day**, and **Dark**. In Auto mode, an explicit **Use location** click requests browser geolocation and computes approximate astronomical sunrise and sunset locally. No coordinates are transmitted or stored by this app. Without location permission, Auto uses an explicitly labeled **07:00–19:00 local-clock approximation**, not actual sunrise/sunset. Theme updates approximately once per minute; the manually selected mode is stored in localStorage when available. Location access generally requires HTTPS or localhost, and the calculation is an approximation (not an official astronomical timetable).
