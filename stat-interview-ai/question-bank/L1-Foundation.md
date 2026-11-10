@@ -1,6 +1,17 @@
 # L1-Foundation — Interview Questions
 
-**Status: DRAFT / UNREVIEWED / NO GO**
+**Status: DRAFT / SELF-REVIEW PENDING / NO GO**
+
+## Level competency and review guidance
+
+**Expected evidence:** Recognize core terminology and distinguish definitions from assumptions.
+
+**Common failure modes:** Confusing observational and interventional research; asserting missing equals zero.
+
+**Scoring per question (0–10):** technical correctness 0–4; level-appropriate reasoning 0–2; clarity 0–2; edge cases or limitations 0–2. A score is not assigned until a documented review is performed.
+
+**Important:** The concise reference answer is a starting point, not an exhaustive or universally applicable response. Check study-specific definitions against the applicable protocol, SAP, and standard version.
+
 
 ## Q001 — What is a clinical trial?
 
@@ -10,7 +21,9 @@
 
 **Follow-up:** How does an observational study differ?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -22,7 +35,9 @@
 
 **Follow-up:** When should it be finalized?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -34,7 +49,9 @@
 
 **Follow-up:** Why prespecify it?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -46,7 +63,9 @@
 
 **Follow-up:** How does a listing differ from a table?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
 
 ---
 
@@ -58,4 +77,6 @@
 
 **Follow-up:** Can missing be replaced by zero?
 
-**Review status:** UNREVIEWED
+**Review status:** SELF-REVIEW PENDING
+
+**Candidate scoring guide:** 0–4 accuracy; 0–2 reasoning; 0–2 clarity; 0–2 limitations. **Score:** NOT ASSESSED
