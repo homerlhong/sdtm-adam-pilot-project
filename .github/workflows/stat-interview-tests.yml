@@ -16,3 +16,4 @@ jobs:
       - run: python3 stat-interview-ai/tests/phase0_smoke.py
       - run: python3 stat-interview-ai/tests/codelab_check.py
       - run: python3 stat-interview-ai/tests/cloud_exam_check.py
+      - run: python3 stat-interview-ai/tests/interview_check.py

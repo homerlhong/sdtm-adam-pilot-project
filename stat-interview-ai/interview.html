@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Office Interview · Toronto Intelligent College</title>
+<style>
+:root{--bg:#0f1b2d;--card:#16263d;--line:#3c516f;--text:#e6edf6;--muted:#9fb0c6;--accent:#60a5fa;--ok:#1D9E75;--warn:#EF9F27}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+main{max-width:980px;margin:0 auto;padding:16px}a{color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.stage{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.stage svg{display:block;width:100%;height:auto}
+.subtitle{position:absolute;left:4%;right:4%;bottom:4%;background:rgba(10,19,34,.86);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:16px;min-height:48px}
+.subtitle .who{color:var(--accent);font-weight:600;margin-right:6px}
+textarea{width:100%;min-height:120px;background:#0a1322;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;font:15px system-ui}
+button,select{background:#1e3a5f;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;font:14px system-ui}
+button.primary{background:#2563eb;border-color:#2563eb}button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.muted{color:var(--muted);font-size:14px}
+.mic.on{background:#b42318;border-color:#b42318}
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}.dim{background:#0a1322;border:1px solid var(--line);border-radius:8px;padding:8px}.dim b{font-size:20px}
+.hidden{display:none}
+#mouth{transition:d .08s}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+@keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(1.5px)}}
+#person{animation:breathe 4s ease-in-out infinite}
+</style></head><body><main>
+<p><a href="index.html">← Practice</a> · <a href="codelab.html">Code Lab</a></p>
+<h1>AI Office Interview</h1>
+<p class="muted">Toronto Intelligent College · a NAMTSO branch. Your interviewer, Dr. Maya Lin, is a fictional AI character. The AI score is advisory practice feedback, not a verified assessment.</p>
+
+<div class="stage" aria-label="Office interview scene">
+<svg viewBox="0 0 960 540" role="img" aria-label="An interviewer sitting at a desk in a bright office">
+ <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9cc9ef"/><stop offset="1" stop-color="#dcecf8"/></linearGradient>
+ <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e4dc"/><stop offset="1" stop-color="#d8d1c6"/></linearGradient></defs>
+ <rect width="960" height="540" fill="url(#wall)"/>
+ <!-- window with city -->
+ <rect x="540" y="50" width="360" height="250" rx="6" fill="#6b5a4a"/><rect x="552" y="62" width="336" height="226" fill="url(#sky)"/>
+ <g fill="#7f9bb5"><rect x="570" y="170" width="40" height="118"/><rect x="618" y="140" width="34" height="148"/><rect x="660" y="190" width="50" height="98"/><rect x="718" y="120" width="30" height="168"/><rect x="756" y="160" width="46" height="128"/><rect x="810" y="180" width="60" height="108"/></g>
+ <g fill="#cfe0ee" opacity=".7"><rect x="626" y="150" width="6" height="8"/><rect x="638" y="150" width="6" height="8"/><rect x="726" y="132" width="5" height="7"/><rect x="736" y="132" width="5" height="7"/><rect x="766" y="172" width="6" height="8"/><rect x="820" y="192" width="6" height="8"/></g>
+ <rect x="716" y="62" width="8" height="226" fill="#6b5a4a"/><rect x="552" y="172" width="336" height="6" fill="#6b5a4a"/>
+ <!-- bookshelf -->
+ <rect x="60" y="70" width="210" height="300" fill="#8a6d52"/><g fill="#6f563f"><rect x="70" y="140" width="190" height="8"/><rect x="70" y="220" width="190" height="8"/><rect x="70" y="300" width="190" height="8"/></g>
+ <g><rect x="78" y="92" width="14" height="48" fill="#3b6ea5"/><rect x="94" y="98" width="12" height="42" fill="#c0504d"/><rect x="108" y="88" width="16" height="52" fill="#4f8a6b"/><rect x="128" y="100" width="10" height="40" fill="#d9a441"/><rect x="142" y="94" width="14" height="46" fill="#6c5b9a"/>
+ <rect x="80" y="172" width="16" height="48" fill="#4f8a6b"/><rect x="100" y="178" width="12" height="42" fill="#3b6ea5"/><rect x="190" y="170" width="44" height="50" fill="#e8e1d5"/><text x="212" y="200" font-size="10" text-anchor="middle" fill="#555" font-family="system-ui">CDISC</text>
+ <rect x="80" y="256" width="60" height="44" fill="#f0ece4"/><path d="M86 290 L98 274 L108 282 L120 266 L134 278" stroke="#2563eb" stroke-width="3" fill="none"/></g>
+ <!-- plant -->
+ <rect x="440" y="300" width="40" height="44" rx="4" fill="#b5654a"/><g fill="#4f8a6b"><ellipse cx="448" cy="290" rx="14" ry="30" transform="rotate(-25 448 290)"/><ellipse cx="472" cy="286" rx="14" ry="32" transform="rotate(20 472 286)"/><ellipse cx="460" cy="276" rx="12" ry="34"/></g>
+ <!-- person -->
+ <g id="person">
+  <rect x="300" y="300" width="230" height="140" rx="60" fill="#2f4a6d"/>
+  <path d="M385 300 L415 360 L445 300 Z" fill="#f5f5f5"/>
+  <rect x="402" y="262" width="26" height="40" rx="10" fill="#e0ad8a"/>
+  <path d="M352 188 C352 128 478 128 478 188 L478 268 C470 248 360 248 352 268 Z" fill="#2b2019"/>
+  <ellipse cx="415" cy="212" rx="54" ry="64" fill="#e8b996"/>
+  <path d="M361 196 C366 150 464 140 470 196 C450 170 400 168 361 196 Z" fill="#2b2019"/>
+  <g class="eye"><ellipse cx="395" cy="214" rx="5.5" ry="6.5" fill="#2b2019"/></g>
+  <g class="eye"><ellipse cx="435" cy="214" rx="5.5" ry="6.5" fill="#2b2019"/></g>
+  <path d="M385 200 Q395 195 405 200 M425 200 Q435 195 445 200" stroke="#2b2019" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <g fill="none" stroke="#333" stroke-width="2"><circle cx="395" cy="214" r="13"/><circle cx="435" cy="214" r="13"/><path d="M408 214 H422"/></g>
+  <path d="M415 222 Q412 236 418 238" stroke="#c98f6e" stroke-width="2" fill="none"/>
+  <path id="mouth" d="M402 252 Q415 258 428 252 Q415 256 402 252 Z" fill="#a8504a"/>
+  <rect x="356" y="330" width="40" height="22" rx="3" fill="#e9eef5" transform="rotate(-6 376 341)"/>
+  <text x="372" y="345" font-size="8" fill="#2f4a6d" font-family="system-ui" transform="rotate(-6 376 341)">TIC</text>
+ </g>
+ <!-- desk -->
+ <rect x="0" y="420" width="960" height="120" fill="#7a5c43"/><rect x="0" y="412" width="960" height="14" fill="#94714f"/>
+ <rect x="560" y="352" width="150" height="66" rx="4" fill="#222"/><rect x="566" y="358" width="138" height="54" fill="#334a66"/><rect x="620" y="416" width="40" height="6" fill="#222"/>
+ <rect x="230" y="396" width="90" height="18" rx="2" fill="#f4f1ea"/><rect x="236" y="390" width="78" height="10" fill="#e6e0d4"/>
+ <rect x="752" y="380" width="26" height="34" rx="4" fill="#f4f1ea"/><path d="M778 388 q12 6 0 16" stroke="#f4f1ea" stroke-width="4" fill="none"/>
+</svg>
+<div class="subtitle" id="subtitle"><span class="who">Dr. Lin</span><span id="line">Welcome. Choose a level and press Start when you're ready.</span></div>
+</div>
+
+<section id="setup" class="card">
+ <div class="row"><label for="level">Level</label><select id="level"><option value="1">L1 Foundation</option><option value="2">L2 Junior</option><option value="3">L3 Programmer</option><option value="4" selected>L4 Senior</option><option value="5">L5 Lead</option><option value="6">L6 Associate Principal</option><option value="7">L7 Principal</option></select>
+ <label><input type="checkbox" id="voiceOn" checked> Interviewer voice</label>
+ <button id="startBtn" class="primary">Start interview</button></div>
+ <p class="muted" id="capNote">Checking voice, microphone and AI follow-up support…</p>
+</section>
+
+<section id="talk" class="card hidden">
+ <div class="row muted"><span id="progress"></span><span id="phaseTag"></span></div>
+ <textarea id="answer" placeholder="Answer in English. Type, or press the mic and speak."></textarea>
+ <div class="row"><button id="micBtn" class="mic">🎙 Speak</button><button id="repeatBtn">↻ Repeat question</button><button id="submitBtn" class="primary">Submit answer</button><span id="status" class="muted"></span></div>
+</section>
+
+<section id="feedback" class="card hidden" aria-live="polite">
+ <h2 id="fbTitle">Feedback</h2>
+ <div class="score" id="dims"></div>
+ <p id="fbText"></p>
+ <div id="selfReview" class="row hidden"><span>AI unavailable. Self-review:</span><button data-v="8">Met</button><button data-v="3">Needs work</button></div>
+ <button id="nextBtn" class="primary">Next question →</button>
+</section>
+
+<section id="summary" class="card hidden">
+ <h2>Interview summary</h2>
+ <p id="sumText"></p>
+ <div id="sumList"></div>
+ <button id="againBtn">Start another interview</button>
+</section>
+</main>
+<script src="questions.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const HISTORY_KEY="stat-interview-attempt-history-v2";
+const DIMS=[["structure","Structure"],["accuracy","Technical accuracy"],["validation","Validation & risk"],["communication","Communication"]];
+let tts=null,dict=null,sample=null,listening=false;
+let qs=[],pos=0,phase="idle",mainAnswer="",followup="",results=[],qStart=0,pasted=0,sessionId="";
+
+function say(text){$("line").textContent=text;if(!tts||!$("voiceOn").checked)return Promise.resolve();return tts.speak(text,{voice:"airy",language:"en"}).catch(()=>{})}
+// lip movement while speaking
+let mouthTimer=null;
+function mouth(open){$("mouth").setAttribute("d",open?"M402 250 Q415 266 428 250 Q415 256 402 250 Z":"M402 252 Q415 258 428 252 Q415 256 402 252 Z")}
+function setSpeaking(on){clearInterval(mouthTimer);if(on){let t=false;mouthTimer=setInterval(()=>{t=!t;mouth(t)},140)}else mouth(false)}
+
+function history(){try{return JSON.parse(localStorage.getItem(HISTORY_KEY)||"[]")||[]}catch(e){return []}}
+function saveHistory(h){try{localStorage.setItem(HISTORY_KEY,JSON.stringify(h.slice(-200)))}catch(e){}}
+
+function show(id){["setup","talk","feedback","summary"].forEach(x=>$(x).classList.toggle("hidden",x!==id&&!(id==="talk"&&x==="setup"&&false)))}
+
+async function askQuestion(){
+  const q=qs[pos];phase="main";mainAnswer="";followup="";pasted=0;qStart=Date.now();
+  $("answer").value="";$("progress").textContent="Question "+(pos+1)+" of "+qs.length;$("phaseTag").textContent=" · main question";
+  show("talk");$("answer").focus();
+  await say((pos===0?"Let's begin. ":"Next question. ")+q.question);
+}
+async function getFollowup(q,ans){
+  if(!sample)return q.followup;
+  try{
+    const r=await sample("You are Dr. Maya Lin, a senior hiring manager for clinical statistical programming roles, interviewing a candidate in English. Ask exactly ONE short, natural follow-up question (max 30 words) that probes the weakest or vaguest part of the candidate's answer. If the answer is strong, use or adapt the suggested follow-up. Output only the question.\n\nQuestion: "+q.question+"\nCompetency: "+q.focus+"\nReference points: "+q.answer+"\nSuggested follow-up: "+q.followup+"\nCandidate answer: "+ans.slice(0,3000),{modelTier:"quick",cache:false});
+    const t=(r&&r.text||"").trim();return t||q.followup;
+  }catch(e){return q.followup}
+}
+async function scoreAnswer(q,ans,fu,fuAns){
+  if(!sample)return null;
+  const prompt="Score a clinical statistical programming interview answer. Be strict and fair. Do not reward length or buzzwords; reward correct, specific, auditable practice. Return JSON only: {\"structure\":0-2,\"accuracy\":0-2,\"validation\":0-2,\"communication\":0-2,\"strength\":\"one sentence\",\"gap\":\"one sentence\",\"better\":\"one improved sentence the candidate could say\"}.\n0=missing/incorrect, 1=partial, 2=clear and correct.\n\nLevel: L"+q.level+"\nQuestion: "+q.question+"\nCompetency: "+q.focus+"\nReference points: "+q.answer+"\nCandidate answer: "+ans.slice(0,3000)+"\nFollow-up asked: "+fu+"\nFollow-up answer: "+fuAns.slice(0,1500);
+  try{const v=await sample.json(prompt,{modelTier:"default",cache:false});
+    const out={};for(const [k] of DIMS){const n=Math.round(Number(v&&v[k]));out[k]=Number.isFinite(n)?Math.max(0,Math.min(2,n)):0}
+    out.strength=String(v&&v.strength||"");out.gap=String(v&&v.gap||"");out.better=String(v&&v.better||"");return out}catch(e){return null}
+}
+function total(s){return DIMS.reduce((a,[k])=>a+(s[k]||0),0)}
+
+$("answer").addEventListener("paste",e=>{const t=(e.clipboardData&&e.clipboardData.getData("text"))||"";pasted+=t.length});
+
+$("submitBtn").onclick=async()=>{
+  const v=$("answer").value.trim();if(!v){$("answer").focus();return}
+  if(listening&&dict){try{await dict.stop()}catch(e){}}
+  const q=qs[pos];$("submitBtn").disabled=true;
+  if(phase==="main"){
+    mainAnswer=v;$("status").textContent="Dr. Lin is thinking…";
+    followup=await getFollowup(q,v);$("status").textContent="";
+    phase="followup";$("answer").value="";$("phaseTag").textContent=" · follow-up";$("submitBtn").disabled=false;
+    await say(followup);
+  }else{
+    const fuAns=v;$("status").textContent="Scoring…";
+    const s=await scoreAnswer(q,mainAnswer,followup,fuAns);$("status").textContent="";$("submitBtn").disabled=false;
+    const seconds=Math.round((Date.now()-qStart)/1000);const len=(mainAnswer+fuAns).length;
+    const rec={id:q.id,question:q.question,seconds,pastedPct:len?Math.min(100,Math.round(100*pasted/len)):0,followup,answer:mainAnswer,followupAnswer:fuAns,score:s};
+    results.push(rec);renderFeedback(rec,q);
+  }
+};
+function renderFeedback(rec,q){
+  show("feedback");const dims=$("dims");dims.replaceChildren();
+  if(rec.score){
+    DIMS.forEach(([k,label])=>{const d=document.createElement("div");d.className="dim";const b=document.createElement("b");b.textContent=rec.score[k]+"/2";d.append(b,document.createTextNode(" "+label));dims.append(d)});
+    $("fbTitle").textContent="Feedback · "+total(rec.score)+"/8"+(rec.pastedPct>=50?" · flagged: mostly pasted":"");
+    $("fbText").textContent="Strength: "+rec.score.strength+" Gap: "+rec.score.gap+" Try saying: "+rec.score.better;
+    $("selfReview").classList.add("hidden");$("nextBtn").disabled=false;
+    say(total(rec.score)>=6?"Good answer. "+rec.score.gap:"Thanks. One thing to work on: "+rec.score.gap);
+  }else{
+    $("fbTitle").textContent="Reference points";$("fbText").textContent=q.answer+" (Focus: "+q.focus+")";
+    $("selfReview").classList.remove("hidden");$("nextBtn").disabled=true;
+  }
+  $("nextBtn").textContent=pos===qs.length-1?"Finish interview":"Next question →";
+}
+$("selfReview").addEventListener("click",e=>{const v=e.target.dataset&&e.target.dataset.v;if(!v)return;const r=results[results.length-1];const n=Number(v);r.score={structure:n>=6?2:1,accuracy:n>=6?2:1,validation:n>=6?2:0,communication:n>=6?2:1,strength:"",gap:"",better:"",self:true};$("nextBtn").disabled=false;$("fbTitle").textContent="Self-reviewed: "+(n>=6?"Met":"Needs work")});
+$("nextBtn").onclick=()=>{pos++;if(pos<qs.length)askQuestion();else finish()};
+
+function finish(){
+  phase="done";show("summary");const met=results.filter(r=>r.score&&total(r.score)>=6).length;
+  const avg=results.length?(results.reduce((a,r)=>a+(r.score?total(r.score):0),0)/results.length).toFixed(1):"0";
+  $("sumText").textContent="Level "+qs[0].level+" · "+met+"/"+results.length+" answers at 6/8 or above · average "+avg+"/8. AI scores are advisory; your instructor makes any final decision.";
+  const box=$("sumList");box.replaceChildren();
+  results.forEach((r,i)=>{const p=document.createElement("p");p.textContent=(i+1)+". "+r.question+" → "+(r.score?total(r.score)+"/8":"unscored")+" · "+r.seconds+" s"+(r.pastedPct>=50?" · mostly pasted":"");box.append(p)});
+  const h=history();const self=results.some(r=>r.score&&r.score.self);
+  h.push({id:sessionId,level:qs[0].level,met,total:results.length,questionIds:results.map(r=>r.id),method:self?"self-review":"ai-interview",mode:"interview",coverage:results.length===BANK.filter(q=>q.level===qs[0].level).length?"full":"quick",
+    integrity:results.map(r=>({id:r.id,seconds:r.seconds,pastedPct:r.pastedPct,hints:0,aiScore:r.score?total(r.score):null})),
+    interview:results.map(r=>({id:r.id,followup:r.followup,answer:r.answer.slice(0,2000),followupAnswer:r.followupAnswer.slice(0,1000),score:r.score})),updated:new Date().toISOString()});
+  saveHistory(h);if(window.tcSyncNow)window.tcSyncNow();
+  say("That's the end of our interview. Thank you. Your summary is on screen.");
+}
+$("againBtn").onclick=()=>{show("setup");$("line").textContent="Choose a level and press Start when you're ready."};
+$("repeatBtn").onclick=()=>say(phase==="followup"?followup:qs[pos].question);
+$("startBtn").onclick=()=>{
+  const lv=Number($("level").value);qs=BANK.filter(q=>q.level===lv);pos=0;results=[];
+  sessionId="iv-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+  $("setup").classList.add("hidden");
+  say("Hello, I'm Dr. Maya Lin. Thanks for coming in today. I'll ask you "+qs.length+" questions, each with a follow-up. Take your time.").then(askQuestion);
+};
+$("micBtn").onclick=()=>{
+  if(!dict)return;
+  if(listening){dict.stop().catch(()=>{});return}
+  dict.start().catch(e=>{if(e&&e.code==="not_granted"){$("micBtn").classList.add("hidden");$("status").textContent="Microphone declined; please type."}});
+};
+(async()=>{
+  const notes=[];
+  if(window.claude&&typeof claude.use==="function"){
+    [tts,dict,sample]=await Promise.all([claude.use("tts"),claude.use("dictation"),claude.use("sample")]);
+  }
+  if(tts){tts.onState(({state})=>setSpeaking(state==="speaking"))}else{notes.push("voice off (subtitles only)");$("voiceOn").disabled=true}
+  if(dict){
+    dict.onFinal(({text})=>{const a=$("answer");a.value=(a.value?a.value.replace(/\s*$/," "):"")+text});
+    dict.onState(({state})=>{listening=state==="listening";$("micBtn").classList.toggle("on",listening);$("micBtn").textContent=listening?"■ Stop":"🎙 Speak"});
+  }else{$("micBtn").classList.add("hidden");notes.push("microphone unavailable (type your answers)")}
+  if(!sample)notes.push("AI follow-up and scoring unavailable here (standard follow-ups and self-review are used)");
+  $("capNote").textContent=notes.length?"Note: "+notes.join("; ")+".":"Voice, microphone and AI follow-up are ready.";
+})();
+</script>
+<script src="cloud.js"></script>
+</body></html>
