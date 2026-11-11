@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAS Code Lab · Toronto Intelligent College</title>
+<style>
+:root{--bg:#0f1b2d;--card:#16263d;--line:#3c516f;--text:#e6edf6;--muted:#9fb0c6;--ok:#1D9E75;--bad:#E24B4A}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+main{max-width:860px;margin:0 auto;padding:20px}a{color:#60a5fa}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+pre{background:#0a1322;border:1px solid var(--line);border-radius:8px;padding:12px;overflow-x:auto;font-size:14px}
+table{border-collapse:collapse;font-size:13px;margin:6px 0;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:3px 8px}
+label.opt{display:block;padding:6px 8px;border:1px solid var(--line);border-radius:8px;margin:6px 0;cursor:pointer}
+input[type=number]{background:#0a1322;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px;width:120px}
+button{background:#1e3a5f;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+.result{margin-top:10px;padding:10px;border-radius:8px;display:none}.result.ok{display:block;border:1px solid var(--ok)}.result.bad{display:block;border:1px solid var(--bad)}
+.muted{color:var(--muted);font-size:14px}
+</style></head><body><main>
+<p><a href="index.html">← Back to practice</a></p>
+<h1>SAS Code Lab</h1>
+<p class="muted">Toronto Intelligent College · a NAMTSO branch · Onboarding track. Public CDISC Pilot-style teaching data only.</p>
+<p class="muted">Find the bug, then predict the corrected output. Grading is exact: the right choice and the exact number. No keyword matching. Code Lab scores are kept separately and do not change your forest.</p>
+<div id="lab"></div>
+<div class="card"><strong id="labScore">Code Lab: 0 / 0 solved</strong>
+<p><button id="labReset">Reset Code Lab results</button></p></div>
+</main>
+<script src="codelab/exercises.js"></script>
+<script>
+const LAB_KEY="stat-interview-codelab-v1";
+let results={};try{results=JSON.parse(localStorage.getItem(LAB_KEY)||"{}")||{}}catch(e){results={}}
+function save(){try{localStorage.setItem(LAB_KEY,JSON.stringify(results))}catch(e){}}
+function grade(ex,choice,value){
+  const bugOk=choice===ex.bugAnswer;
+  const s=String(value).trim();
+  const outOk=/^-?\d+(\.\d+)?$/.test(s)&&Number(s)===ex.outputAnswer;
+  return {bugOk,outOk,solved:bugOk&&outOk};
+}
+function el(tag,text){const e=document.createElement(tag);if(text!=null)e.textContent=text;return e}
+function table(rows){const t=el("table");const cols=Object.keys(rows[0]);const h=el("tr");cols.forEach(c=>h.append(el("th",c)));t.append(h);rows.forEach(r=>{const tr=el("tr");cols.forEach(c=>tr.append(el("td",String(r[c]))));t.append(tr)});return t}
+function weekPct(w){const xs=CODELAB.exercises.filter(e=>e.week===w);return xs.length?100*xs.filter(e=>results[e.id]&&results[e.id].solved).length/xs.length:0}
+function unlocked(w){return w<=1||weekPct(w-1)>=CODELAB.unlockPercent}
+function render(){
+  const lab=document.getElementById("lab");lab.replaceChildren();
+  const weeks=[...new Set(CODELAB.exercises.map(e=>e.week))].sort((a,b)=>(a||99)-(b||99));
+  weeks.forEach(w=>{
+    const open=unlocked(w);const head=el("h2",(CODELAB.weeks[w]||("Week "+w))+" · "+Math.round(weekPct(w))+"% solved"+(open?"":" · 🔒 locked"));head.className="week";head.id="week-"+w;lab.append(head);
+    if(!open){const n=el("p","Solve at least "+CODELAB.unlockPercent+"% of week "+(w-1)+" to unlock.");n.className="muted locked";lab.append(n);return}
+  CODELAB.exercises.filter(e=>e.week===w).forEach(ex=>{
+    const c=el("section");c.className="card";c.id="ex-"+ex.id;
+    c.append(el("h2",ex.id+" · "+ex.title),el("p","Level "+ex.level+" · "+ex.skill));
+    for(const [name,rows] of Object.entries(ex.data)){c.append(el("p","Input: "+name.toUpperCase()),table(rows))}
+    c.append(el("pre",ex.code));
+    const fs=el("fieldset");fs.append(el("legend",ex.bugQuestion));
+    ex.choices.forEach((t,i)=>{const l=el("label");l.className="opt";const r=el("input");r.type="radio";r.name="c-"+ex.id;r.value=i;l.append(r,document.createTextNode(" "+t));fs.append(l)});
+    c.append(fs);
+    const ql=el("label",ex.outputQuestion+" ");const inp=el("input");inp.type="number";inp.className="out";ql.append(inp);const qp=el("p");qp.append(ql);c.append(qp);
+    const b=el("button","Check");b.className="check";const res=el("div");res.className="result";res.setAttribute("aria-live","polite");
+    b.onclick=()=>{
+      const sel=c.querySelector("input[type=radio]:checked");
+      const g=grade(ex,sel?Number(sel.value):-1,inp.value);
+      res.className="result "+(g.solved?"ok":"bad");res.replaceChildren(
+        el("p",(g.bugOk?"✓":"✗")+" Bug identification · "+(g.outOk?"✓":"✗")+" Output value"),
+        ...(g.solved?[el("p",ex.explanation)]:[el("p","Not yet. Review the code and the input data, then try again.")]));
+      const prev=results[ex.id]||{attempts:0,solved:false};
+      results[ex.id]={attempts:prev.attempts+1,solved:prev.solved||g.solved,updated:new Date().toISOString()};save();score();if(g.solved&&!prev.solved){const w=ex.week;if(CODELAB.exercises.some(e=>e.week===w+1)&&!document.getElementById("ex-"+CODELAB.exercises.find(e=>e.week===w+1).id)&&unlocked(w+1))render()}
+    };
+    if(results[ex.id]&&results[ex.id].solved){res.className="result ok";res.replaceChildren(el("p","✓ Solved earlier. "+ex.explanation))}
+    c.append(b,res);lab.append(c);
+  });});score();
+}
+function score(){const n=CODELAB.exercises.length,s=CODELAB.exercises.filter(e=>results[e.id]&&results[e.id].solved).length;document.getElementById("labScore").textContent="Code Lab: "+s+" / "+n+" solved"}
+document.getElementById("labReset").onclick=()=>{if(confirm("Reset Code Lab results?")){results={};save();render()}};
+render();
+</script><script src="cloud.js"></script></body></html>
