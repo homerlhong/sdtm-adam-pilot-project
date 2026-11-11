@@ -69,4 +69,4 @@ function render(){
 function score(){const n=CODELAB.exercises.length,s=CODELAB.exercises.filter(e=>results[e.id]&&results[e.id].solved).length;document.getElementById("labScore").textContent="Code Lab: "+s+" / "+n+" solved"}
 document.getElementById("labReset").onclick=()=>{if(confirm("Reset Code Lab results?")){results={};save();render()}};
 render();
-</script></body></html>
+</script><script src="cloud.js"></script></body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instructor Panel · Toronto Intelligent College</title>
+<style>
+:root{--bg:#0f1b2d;--card:#16263d;--line:#3c516f;--text:#e6edf6;--muted:#9fb0c6;--ok:#1D9E75;--warn:#EF9F27;--bad:#E24B4A}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+main{max-width:1100px;margin:0 auto;padding:20px}a{color:#60a5fa}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}.muted{color:var(--muted);font-size:14px}
+.tag{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;border:1px solid var(--line);margin:1px}
+.ok{border-color:var(--ok)}.warn{border-color:var(--warn)}.bad{border-color:var(--bad)}
+button{background:#1e3a5f;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+details summary{cursor:pointer;color:#60a5fa}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.kpi{background:#0a1322;border:1px solid var(--line);border-radius:10px;padding:10px}.kpi b{font-size:22px;display:block}
+</style></head><body><main>
+<p><a href="index.html">← Practice</a> · <a href="codelab.html">Code Lab</a></p>
+<h1>Instructor Panel</h1>
+<p class="muted">Toronto Intelligent College · a NAMTSO branch. Interview training cloud. Self-review scores are not verified scores; Code Lab scores are deterministic. Recommendations from Claude are advisory, and the final ON / EXTEND / OFF decision is the instructor's.</p>
+<div id="state" class="card">Connecting to the training cloud…</div>
+<section id="panel" hidden>
+  <div class="kpis">
+    <div class="kpi"><span class="muted">Learners synced</span><b id="kLearners">0</b></div>
+    <div class="kpi"><span class="muted">Active last 7 days</span><b id="kActive">0</b></div>
+    <div class="kpi"><span class="muted">Exam-mode attempts</span><b id="kExam">0</b></div>
+    <div class="kpi"><span class="muted">Answers flagged as pasted</span><b id="kPaste">0</b></div>
+  </div>
+  <div class="card tablewrap"><table><thead><tr><th>Learner</th><th>Last sync</th><th>Self-review by level (latest full)</th><th>Exam mode</th><th>Integrity</th><th>Code Lab</th><th>Detail</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <div class="card"><button id="copyPacket">Copy evaluation packet (JSON)</button> <span id="copyMsg" class="muted"></span>
+  <p class="muted">Claude can also read this cloud directly when you ask for an evaluation, so pasting is optional.</p></div>
+</section>
+</main>
+<script src="codelab/exercises.js"></script>
+<script>
+const stateBox=document.getElementById("state");
+function el(t,x,c){const e=document.createElement(t);if(x!=null)e.textContent=x;if(c)e.className=c;return e}
+let docs=[],names={};
+function summarize(d){
+  const h=Array.isArray(d.history)?d.history:[];const lab=d.codelab&&typeof d.codelab==="object"?d.codelab:{};
+  const byLevel={};h.filter(a=>a.coverage==="full").forEach(a=>{const k=a.level;if(!byLevel[k]||a.updated>byLevel[k].updated)byLevel[k]=a});
+  const exam=h.filter(a=>a.mode==="exam");const integ=h.flatMap(a=>Array.isArray(a.integrity)?a.integrity:[]);
+  const pasted=integ.filter(x=>(x.pastedPct||0)>=50).length;const secs=integ.map(x=>x.seconds).filter(x=>typeof x==="number");
+  const weeks={};(window.CODELAB?CODELAB.exercises:[]).forEach(e=>{const w=e.week;weeks[w]=weeks[w]||{s:0,n:0};weeks[w].n++;if(lab[e.id]&&lab[e.id].solved)weeks[w].s++});
+  return {byLevel,exam,integ,pasted,avgSec:secs.length?Math.round(secs.reduce((a,b)=>a+b,0)/secs.length):null,weeks,h,lab};
+}
+async function render(user){
+  const ids=docs.map(d=>d.id);try{names=await user.profiles(ids)||{}}catch(e){names={}}
+  const rows=document.getElementById("rows");rows.replaceChildren();let active=0,examN=0,pasteN=0;
+  const now=Date.now();
+  docs.forEach(d=>{const b=d.data()||{};const s=summarize(b);examN+=s.exam.length;pasteN+=s.pasted;if(b.updated&&now-Date.parse(b.updated)<7*864e5)active++;
+    const tr=el("tr");tr.append(el("td",(names[d.id]&&names[d.id].name)||"Learner "+d.id.slice(0,6)));
+    tr.append(el("td",b.updated?new Date(b.updated).toLocaleString():"—"));
+    const lv=el("td");Object.keys(s.byLevel).sort().forEach(k=>{const a=s.byLevel[k];const p=Math.round(100*a.met/a.total);lv.append(el("span","L"+k+" "+p+"%","tag "+(p>=80?"ok":"warn")))});if(!lv.childNodes.length)lv.textContent="—";tr.append(lv);
+    tr.append(el("td",s.exam.length?s.exam.length+" attempt(s)":"none"));
+    const ig=el("td");ig.append(el("span",s.pasted+" pasted","tag "+(s.pasted?"bad":"ok")));if(s.avgSec!=null)ig.append(el("span","avg "+s.avgSec+" s/answer","tag "+(s.avgSec<45?"warn":"ok")));tr.append(ig);
+    const cl=el("td");Object.keys(s.weeks).sort((a,b)=>(+a||99)-(+b||99)).forEach(w=>{const x=s.weeks[w];cl.append(el("span",(w==="0"?"Practice":"W"+w)+" "+x.s+"/"+x.n,"tag "+(x.s===x.n?"ok":x.s?"warn":"")))});tr.append(cl);
+    const dt=el("td");const det=el("details");det.append(el("summary","attempts"));const ul=el("ul");s.h.slice(-10).reverse().forEach(a=>ul.append(el("li","L"+a.level+" · "+(a.mode||"practice")+" · "+a.coverage+" · "+a.met+"/"+a.total+" Met · "+(a.updated||"").slice(0,16).replace("T"," "))));det.append(ul);dt.append(det);tr.append(dt);
+    rows.append(tr)});
+  document.getElementById("kLearners").textContent=docs.length;document.getElementById("kActive").textContent=active;document.getElementById("kExam").textContent=examN;document.getElementById("kPaste").textContent=pasteN;
+  if(!docs.length){const tr=el("tr");const td=el("td","No learner has synced yet. Share the link with learners at Contributor level; their results appear here after they agree to sync.");td.colSpan=7;tr.append(td);rows.append(tr)}
+}
+document.getElementById("copyPacket").onclick=async()=>{
+  const packet={exportedAt:new Date().toISOString(),learners:docs.map(d=>({id:d.id,name:(names[d.id]&&names[d.id].name)||"",summary:(()=>{const s=summarize(d.data()||{});return {latestFullByLevel:s.byLevel,examAttempts:s.exam.length,pastedAnswers:s.pasted,avgSecondsPerAnswer:s.avgSec,codelabByWeek:s.weeks}})(),raw:d.data()}))};
+  const t=JSON.stringify(packet,null,1);const m=document.getElementById("copyMsg");try{await navigator.clipboard.writeText(t);m.textContent="Copied."}catch(e){m.textContent="Copy blocked; ask Claude to read the cloud directly."}};
+(async()=>{
+  const timer=setTimeout(()=>{stateBox.textContent="The training cloud can't be reached here. Open this page from the college link while signed in."},10000);
+  if(!window.claude||typeof claude.use!=="function"){clearTimeout(timer);stateBox.textContent="Local preview: the training cloud is only available on the hosted college link.";return}
+  const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+  if(!db||!user){clearTimeout(timer);stateBox.textContent="The training cloud is not available in this view. Sign in and open the college link.";return}
+  if(!user.canEdit()){clearTimeout(timer);stateBox.textContent="Instructor only. Learners can see their own results on the practice page.";return}
+  db.collection("attempts").onSnapshot(snap=>{clearTimeout(timer);stateBox.textContent=snap.metadata.fromCache?"Showing saved data; refreshing…":"Live · updates automatically.";docs=snap.docs.filter(d=>d.exists);document.getElementById("panel").hidden=false;render(user)},err=>{clearTimeout(timer);stateBox.textContent="Training cloud error: "+(err&&err.code||"unknown")+". Reload later."});
+})();
+</script></body></html>

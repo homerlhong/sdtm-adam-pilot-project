@@ -22,3 +22,10 @@ Tests: `python3 tests/codelab_check.py` gives 28 PASS. Without Playwright the sc
 - Export (TXT and JSON) now also opens a copy panel, because the hosted page blocks downloads.
 - Data: invented teaching slices in CDISC Pilot style. No NAMTSO research data.
 - Tests: codelab_check.py 45 PASS; phase0_smoke.py 22 PASS.
+
+## Update: Interview training cloud
+- Exam mode: full level, hints and code disabled. Records time per answer and paste share. Answers that are 50% or more pasted are flagged in the report, the JSON export and the instructor panel. The flag is deterministic: pasted characters divided by answer length.
+- cloud.js: after explicit consent, syncs history and Code Lab results to `attempts/<viewer id>`. The page falls back to "Local only" when the cloud isn't available.
+- instructor.html: owner/editors only. Shows KPIs, self-review by level, exam attempts, integrity flags, Code Lab progress by week, and a copyable evaluation packet.
+- Access rules: `attempts` read=admin, write=owner. `attempts/{self}` read/write=interact. Learners need Contributor access and see only their own record.
+- Tests: cloud_exam_check.py 24 PASS, run against an in-memory mock of the db and user capabilities. The real cloud is checked manually after publishing.
